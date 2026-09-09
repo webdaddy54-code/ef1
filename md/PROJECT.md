@@ -2,7 +2,7 @@
 project: ef1
 type: project-plan
 status: live
-phase: "pre-migration"
+phase: "Phase 0 — Cloudways migration (nearly done)"
 priority: high
 created: 2026-09-09
 updated: 2026-09-09
@@ -15,52 +15,60 @@ updated: 2026-09-09
 
 ---
 
-## Phase 0: Cloudways PHP 8.4 Migration ⏳ WAITING ON SI
+## Phase 0: Cloudways PHP 8.4 Migration 🔶 NEARLY DONE
 
-- [ ] Backup live `database.sqlite` via FileZilla ← **Si to do**
-- [ ] Backup live `config.php`, `.htaccess`, `admin/generate_hash.php` ← **Si to do**
-- [ ] Create new Cloudways Application (PHP 8.4, PHP + Apache) ← **Si to do**
-- [ ] Connect GitHub repo and deploy ← **Si to do**
-- [ ] Upload gitignored files to new app ← **Si to do**
-- [ ] Test everything on staging URL (including admin login) ← **Si + Ted**
-- [ ] Repoint domain ← **Si to do**
-- [ ] Keep old app running (paused) for 2 weeks as fallback ← **Si to do**
+- [x] Create new Cloudways Application (PHP 8.4, PHP + Apache) ✅
+- [x] Create new GitHub repo (`webdaddy54-code/ef1`) ✅
+- [x] Push all code to GitHub ✅
+- [x] Connect Cloudways to GitHub repo and deploy ✅
+- [x] Upload gitignored files (database.sqlite, config.php, .htaccess) ✅
+- [x] Test site on staging URL ✅
+- [x] Test admin login ✅
+- [x] Fix .htaccess for staging (disable HTTPS/www redirects) ✅ (local, needs upload)
+- [ ] Upload fixed .htaccess + purge Varnish ← **NEXT**
+- [ ] Re-test staging URL with .htaccess in place
+- [ ] Repoint DNS to new server
+- [ ] Re-enable HTTPS/www redirects after DNS propagates
+- [ ] Confirm SSL certificate on new app
+- [ ] Final test on live domain
+- [ ] Keep old app paused for 2 weeks as fallback
 
 ## Phase 1: Data Safety 🔶 PARTIALLY DONE
 
-- [x] Export schema to `schema.sql` and commit to Git ✅ 09/09
-- [ ] Confirm Cloudways automated backups are enabled ← **Si to do**
-- [ ] Take fresh manual backup before any structural change ← **Si to do (after FileZilla)**
+- [x] Export schema to `schema.sql` and commit to Git ✅
+- [ ] Confirm Cloudways automated backups are enabled
+- [ ] Take fresh manual backup before MySQL migration
 
-## Phase 1: SQLite → MySQL Migration 🔶 PREP DONE
+## Phase 1: SQLite → MySQL Migration 🔶 PREP COMPLETE
 
-- [x] Write MySQL `schema-mysql.sql` ✅ 09/09 (proper types, indexes, InnoDB, utf8mb4)
-- [x] Prepare `config-mysql.php` (drop-in replacement, DATE('now') → CURDATE() fixed) ✅ 09/09
-- [x] Write `migrate-sqlite-to-mysql.php` data migration script ✅ 09/09
-- [ ] Provision MySQL database on Cloudways ← **Si to do**
-- [ ] Run `schema-mysql.sql` on new MySQL database ← **Si + Ted**
-- [ ] Fill in credentials and run migration script ← **Si + Ted**
-- [ ] Update `where-to-buy-f1-tickets.php` — DATE('now') → CURDATE() ← **Ted (after MySQL)**
-- [ ] Update `races/race.php` — DATE('now') → CURDATE() ← **Ted (after MySQL)**
-- [ ] Test full site against MySQL locally ← **Si + Ted**
-- [ ] Cut over on Cloudways ← **Si to do**
-- [ ] Keep old `database.sqlite` as offline backup ← **Si to do**
-- [ ] Point TablePlus at MySQL ← **Si to do**
+- [x] Write MySQL `schema-mysql.sql` ✅
+- [x] Prepare `config-mysql.php` ✅
+- [x] Write `migrate-sqlite-to-mysql.php` ✅
+- [ ] Provision MySQL database on Cloudways
+- [ ] Run `schema-mysql.sql` on new database
+- [ ] Run migration script (fill in credentials first)
+- [ ] Update `where-to-buy-f1-tickets.php` — DATE('now') → CURDATE()
+- [ ] Update `races/race.php` — DATE('now') → CURDATE()
+- [ ] Replace `config.php` with `config-mysql.php`
+- [ ] Test full site against MySQL
+- [ ] Point TablePlus at MySQL
 
-## Phase 2: Security Headers ✅ DONE (09/09)
+## Phase 2: Security Headers ✅ DONE
 
-- [x] Add `Content-Security-Policy` to `.htaccess` ✅
+- [x] Add `Content-Security-Policy` ✅
 - [x] Add `Strict-Transport-Security` ✅
 - [x] Add `Permissions-Policy` ✅
-- [x] Existing headers already used `Header always set` ✅ (no change needed)
+- [x] Existing headers already used `Header always set` ✅
 
-## Phase 2: SEO / AI Discoverability ✅ DONE (09/09)
+## Phase 2: SEO / AI Discoverability 🔶 FILES DONE, DEPLOY PENDING
 
-- [x] Create `robots.txt` (allow GPTBot, ClaudeBot, PerplexityBot) ✅
-- [x] Write `llms.txt` ✅
-- [x] Check `sitemap.php` has `<lastmod>` and `<priority>` ✅ (already did; added TV schedule page)
-- [ ] Deploy robots.txt + llms.txt to live site ← **Si (next deploy)**
-- [ ] Resubmit sitemap to Google Search Console + Bing ← **Si to do (after deploy)**
+- [x] Create `robots.txt` ✅
+- [x] Create `llms.txt` ✅
+- [x] Check `sitemap.php` has `<lastmod>` and `<priority>` ✅
+- [x] Add TV schedule to sitemap ✅
+- [ ] Deploy robots.txt + llms.txt to live site (happens automatically on next Git deploy)
+- [ ] Submit sitemap to Google Search Console
+- [ ] Submit sitemap to Bing Webmaster Tools
 
 ## Phase 3: Admin Panel Expansion ⏳ NOT STARTED
 
@@ -74,5 +82,5 @@ updated: 2026-09-09
 - [ ] Grand Prix grandstand YouTube videos
 - [ ] Merch / accommodation / affiliate opportunities
 - [ ] Maps integration
-- [ ] "Where to Sit" rollout to more races (Silverstone is the template)
+- [ ] "Where to Sit" rollout to more races
 - [ ] Chase remaining media contacts (Aston Martin, Ferrari)

@@ -2,73 +2,87 @@
 project: ef1
 type: status
 status: live
-phase: "pre-migration"
+phase: "Phase 0 — Cloudways migration (nearly done)"
 updated: 2026-09-09
 ---
 
 # EnterF1.com — Current Status
 
-**As of:** 09/09/2026 (updated 15:30)
+**As of:** 09/09/2026 (updated 17:10)
 
 ---
 
 ## Where Things Stand
 
-The site is **live and functional** at [www.enterf1.com](https://www.enterf1.com). Built pre-playbook but in better shape than expected — admin auth is properly done (bcrypt, CSRF, rate-limiting), SEO meta/OG/Schema.org already wired in.
+**New Cloudways PHP 8.4 app is deployed and working.** Site loads, database connected, admin login working on staging URL. Only remaining issue is .htaccess causing a redirect conflict on the staging domain — fixed locally, needs uploading.
 
-## Work Completed (09/09/2026)
+**Staging URL:** https://phpstack-1627154-6662874.cloudwaysapps.com/
+**GitHub repo:** https://github.com/webdaddy54-code/ef1 (new account, initial commit pushed)
+**Old app:** Still running as fallback — do not delete
 
-| Item | Status | Notes |
-|------|--------|-------|
-| `schema.sql` exported | ✅ Done | Full SQLite schema with header, row counts, committed to project |
-| `schema-mysql.sql` created | ✅ Done | MySQL migration target — proper types, indexes, InnoDB, utf8mb4 |
-| `robots.txt` created | ✅ Done | Allows all + explicit GPTBot/ClaudeBot/PerplexityBot, blocks /admin/ |
-| `llms.txt` created | ✅ Done | Full site summary, all 24 race pages, 7 seating guides, key facts |
-| Security headers added | ✅ Done | CSP, HSTS, Permissions-Policy added to .htaccess; existing headers already used `always set` |
-| Sitemap checked | ✅ Done | Already had lastmod + priority; added missing TV schedule page |
-| `config-mysql.php` prepared | ✅ Done | Drop-in MySQL replacement for config.php, DATE('now') → CURDATE() already fixed |
-| `migrate-sqlite-to-mysql.php` created | ✅ Done | Data migration script — reads SQLite, inserts into MySQL, reports counts |
+---
 
-## Waiting on Si (Manual Steps)
+## Completed Today (09/09/2026)
 
-| Item | Priority | What's Needed |
-|------|----------|---------------|
-| FileZilla live database backup | 🔴 P0 | Download live `database.sqlite`, `config.php`, `.htaccess`, `admin/generate_hash.php` |
-| Create Cloudways PHP 8.4 app | 🔴 P0 | New application, connect GitHub, deploy, upload gitignored files |
-| Test on staging URL | 🔴 P0 | Verify everything works including admin login |
-| DNS switchover | 🔴 P0 | Repoint domain after testing; keep old app paused as fallback |
-| Cloudways backup config | 🟡 P1 | Confirm automated backups are enabled |
-| MySQL provisioning | 🟡 P1 | Create MySQL database on Cloudways |
-| Run migration script | 🟡 P1 | After MySQL is ready: update credentials in `migrate-sqlite-to-mysql.php` and run |
-| Update 2 files for MySQL | 🟡 P1 | `where-to-buy-f1-tickets.php` and `races/race.php` — change `DATE('now')` to `CURDATE()` |
-| Google Search Console submit | 🟢 P2 | Submit sitemap after deploying robots.txt + llms.txt |
-| Bing Webmaster Tools submit | 🟢 P2 | Same |
+### Ted (automated/local work)
 
-## Immediate Risks
+| Item | Status | File |
+|------|--------|------|
+| SQLite schema exported | ✅ | `schema.sql` |
+| MySQL migration schema created | ✅ | `schema-mysql.sql` |
+| robots.txt created | ✅ | `robots.txt` |
+| llms.txt created | ✅ | `llms.txt` |
+| Security headers added (CSP, HSTS, Permissions-Policy) | ✅ | `.htaccess` |
+| Sitemap checked + TV schedule page added | ✅ | `sitemap.php` |
+| MySQL config template prepared | ✅ | `config-mysql.php` |
+| Data migration script created | ✅ | `migrate-sqlite-to-mysql.php` |
+| .htaccess fixed for staging (HTTPS/www redirects disabled) | ✅ | `.htaccess` (local) |
+| Project docs created (README, STATUS, PROJECT) | ✅ | `md/` folder |
+| Git initialised + pushed to new GitHub repo | ✅ | `webdaddy54-code/ef1` |
 
-| Risk | Severity | Status |
-|------|----------|--------|
-| No database backup | 🔴 High | **Unchanged** — needs Si to FileZilla the live DB |
-| No schema documentation | ✅ Fixed | `schema.sql` now exists and is committed |
-| Local SQLite copy is stale | 🟡 Medium | Confirmed — live version has newer data |
-| No robots.txt / llms.txt | ✅ Fixed | Both created, ready to deploy |
-| Missing security headers | ✅ Fixed | CSP, HSTS, Permissions-Policy added to .htaccess |
-| Admin panel only handles results | 🟢 Low | Phase 3 item, not started |
+### Si (manual/Cloudways work)
 
-## Files Changed Today
+| Item | Status |
+|------|--------|
+| New Cloudways PHP 8.4 app created | ✅ |
+| GitHub repo connected + deployed | ✅ |
+| Gitignored files uploaded (database.sqlite, config.php, .htaccess) | ✅ |
+| Site tested on staging URL | ✅ |
+| Admin login tested | ✅ |
 
-- `schema.sql` — **new** (SQLite schema export)
-- `schema-mysql.sql` — **new** (MySQL migration target)
-- `robots.txt` — **new**
-- `llms.txt` — **new**
-- `config-mysql.php` — **new** (MySQL config template)
-- `migrate-sqlite-to-mysql.php` — **new** (data migration script)
-- `.htaccess` — **modified** (added CSP, HSTS, Permissions-Policy headers)
-- `sitemap.php` — **modified** (added TV schedule page)
+---
 
-## Next Session Should
+## Remaining — Si's Checklist
 
-1. Check if Si has done the FileZilla backup
-2. If yes, walk through Cloudways PHP 8.4 app creation
-3. If the new app is deployed, help test and verify
-4. Then tackle the MySQL migration as a separate step
+### Immediate (to finish Phase 0)
+
+- [ ] **Upload fixed `.htaccess`** via FileZilla to the new app — the local copy has HTTPS/www redirects commented out for staging. This should fix the redirect loop.
+- [ ] **Purge Varnish cache** in Cloudways dashboard (Manage Services → Varnish → Purge) after uploading
+- [ ] **Re-test staging URL** — confirm site loads WITH .htaccess in place
+- [ ] **Repoint DNS** — switch enterf1.com A record to the new server's IP
+- [ ] **Re-enable HTTPS/www redirects** in .htaccess after DNS propagates (uncomment the 4 lines)
+- [ ] **Confirm SSL certificate** is active on the new app for enterf1.com (Cloudways → SSL Certificate → Let's Encrypt)
+- [ ] **Final test** on the live domain — homepage, race page, admin login
+- [ ] **Keep old app paused** (not deleted) for 2 weeks as fallback
+
+### Next (Phase 1 — Data Safety + MySQL)
+
+- [ ] **Confirm Cloudways automated backups** are enabled on the new app
+- [ ] **Provision MySQL database** on Cloudways (usually free with PHP app)
+- [ ] **Run `schema-mysql.sql`** on the new MySQL database (via phpMyAdmin or TablePlus)
+- [ ] **Fill in credentials** in `migrate-sqlite-to-mysql.php` and run it
+- [ ] **Update `where-to-buy-f1-tickets.php`** — change `DATE('now')` to `CURDATE()` (line ~343)
+- [ ] **Update `races/race.php`** — change `DATE('now')` to `CURDATE()` (line ~676)
+- [ ] **Replace `config.php`** with `config-mysql.php` (fill in MySQL credentials first)
+- [ ] **Test full site** against MySQL
+- [ ] **Point TablePlus** at the new MySQL database
+
+### After Deploy (Phase 2 — SEO)
+
+- [ ] **Submit sitemap** to Google Search Console
+- [ ] **Submit sitemap** to Bing Webmaster Tools
+
+### Later (Phase 3)
+
+- [ ] Admin panel expansion (add/edit for races, teams, drivers)
+- [ ] Content items (images, videos, more seating guides, merch/affiliate)
