@@ -1,0 +1,77 @@
+# EnterF1.com
+
+> Your Ultimate F1 Race Guide — independent fan site covering the 2026 Formula 1 season with race guides, team and driver profiles, grandstand seating guides, TV schedules, and ticket information.
+
+## About
+
+EnterF1.com is an independent Formula 1 fan website. It provides comprehensive race weekend guides for all 24 races in the 2026 F1 season, including circuit information, where-to-sit grandstand guides, travel tips, TV broadcast schedules (UK), and ticket buying advice. The site covers all 11 teams and 22 drivers competing in the 2026 championship.
+
+## Key Facts
+
+- **Season:** 2026 Formula 1 World Championship
+- **Races:** 24 (note: Bahrain and Saudi Arabian GPs listed as cancelled)
+- **Teams:** 11
+- **Drivers:** 22
+- **Coverage:** UK-focused (TV times for Sky Sports F1 and Channel 4)
+- **Independence:** Not affiliated with Formula 1, FIA, or any team
+
+## Main Pages
+
+- [Homepage](https://www.enterf1.com/) — Next race countdown, season overview, teams and drivers
+- [Race Calendar](https://www.enterf1.com/races/) — All 24 races with dates and circuit info
+- [Teams](https://www.enterf1.com/teams/) — All 11 F1 teams with driver lineups
+- [Drivers](https://www.enterf1.com/drivers/) — All 22 F1 drivers with profiles
+- [Results](https://www.enterf1.com/results/) — Race results and championship standings
+- [TV Schedule](https://www.enterf1.com/f1-tv-schedule.php) — UK broadcast times (Sky Sports F1 / Channel 4)
+- [Where to Buy F1 Tickets](https://www.enterf1.com/where-to-buy-f1-tickets.php) — Ticket buying guide with provider comparisons
+- [F1 Competitions](https://www.enterf1.com/f1-competitions.php) — F1-related competitions
+- [About](https://www.enterf1.com/about.php) — About the site
+- [Contact](https://www.enterf1.com/contact.php) — Contact form
+
+## Race Guides (2026 Season)
+
+Each race page includes circuit details, race date/time, track information, and travel guidance.
+
+- [Australian Grand Prix](https://www.enterf1.com/races/race.php?slug=australian-grand-prix) — Albert Park, Melbourne
+- [Chinese Grand Prix](https://www.enterf1.com/races/race.php?slug=chinese-grand-prix) — Shanghai International Circuit
+- [Japanese Grand Prix](https://www.enterf1.com/races/race.php?slug=japanese-grand-prix) — Suzuka Circuit
+- [Miami Grand Prix](https://www.enterf1.com/races/race.php?slug=miami-grand-prix) — Miami International Autodrome
+- [Canadian Grand Prix](https://www.enterf1.com/races/race.php?slug=canadian-grand-prix) — Circuit Gilles Villeneuve, Montreal
+- [Monaco Grand Prix](https://www.enterf1.com/races/race.php?slug=monaco-grand-prix) — Circuit de Monaco, Monte Carlo
+- [Barcelona-Catalunya Grand Prix](https://www.enterf1.com/races/race.php?slug=barcelona-catalunya-grand-prix) — Circuit de Barcelona-Catalunya
+- [Austrian Grand Prix](https://www.enterf1.com/races/race.php?slug=austrian-grand-prix) — Red Bull Ring, Spielberg
+- [British Grand Prix](https://www.enterf1.com/races/race.php?slug=british-grand-prix) — Silverstone Circuit
+- [Belgian Grand Prix](https://www.enterf1.com/races/race.php?slug=belgian-grand-prix) — Circuit de Spa-Francorchamps
+- [Hungarian Grand Prix](https://www.enterf1.com/races/race.php?slug=hungarian-grand-prix) — Hungaroring, Budapest
+- [Dutch Grand Prix](https://www.enterf1.com/races/race.php?slug=dutch-grand-prix) — Circuit Zandvoort
+- [Italian Grand Prix](https://www.enterf1.com/races/race.php?slug=italian-grand-prix) — Autodromo Nazionale Monza
+- [Spanish Grand Prix (Madrid)](https://www.enterf1.com/races/race.php?slug=spanish-grand-prix-madrid) — Madrid (new for 2026)
+- [Azerbaijan Grand Prix](https://www.enterf1.com/races/race.php?slug=azerbaijan-grand-prix) — Baku City Circuit
+- [Singapore Grand Prix](https://www.enterf1.com/races/race.php?slug=singapore-grand-prix) — Marina Bay Street Circuit
+- [United States Grand Prix](https://www.enterf1.com/races/race.php?slug=united-states-grand-prix) — Circuit of the Americas, Austin
+- [Mexico City Grand Prix](https://www.enterf1.com/races/race.php?slug=mexico-city-grand-prix) — Autodromo Hermanos Rodriguez
+- [Brazilian Grand Prix](https://www.enterf1.com/races/race.php?slug=são-paulo-grand-prix) — Interlagos, Sao Paulo
+- [Las Vegas Grand Prix](https://www.enterf1.com/races/race.php?slug=las-vegas-grand-prix) — Las Vegas Strip Circuit
+- [Qatar Grand Prix](https://www.enterf1.com/races/race.php?slug=qatar-grand-prix) — Lusail International Circuit
+- [Abu Dhabi Grand Prix](https://www.enterf1.com/races/race.php?slug=abu-dhabi-grand-prix) — Yas Marina Circuit
+
+## Where to Sit Guides
+
+Detailed grandstand-by-grandstand seating guides with overtaking ratings, coverage info, and recommendations.
+
+- [Where to Sit at Silverstone](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-silverstone) — British GP
+- [Where to Sit at Spa-Francorchamps](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-spa-francorchamps) — Belgian GP
+- [Where to Sit at Monza](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-monza) — Italian GP
+- [Where to Sit at Monaco](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-monaco) — Monaco GP
+- [Where to Sit at the Red Bull Ring](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-red-bull-ring) — Austrian GP
+- [Where to Sit at the Hungaroring](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-hungaroring) — Hungarian GP
+- [Where to Sit at the Australian Grand Prix](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-australian-grand-prix) — Australian GP
+
+## Legal
+
+- [Privacy Policy](https://www.enterf1.com/privacy.php)
+- [Terms of Use](https://www.enterf1.com/terms.php)
+
+## Sitemap
+
+Full XML sitemap: https://www.enterf1.com/sitemap.xml

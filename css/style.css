@@ -1,0 +1,490 @@
+/**
+ * EnterF1.com - Main Stylesheet
+ * F1 2026 Season
+ */
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+:root {
+    /* F1 Team Colours - 2026 Season */
+    --mclaren-papaya: #FF8000;
+    --mclaren-blue: #47C7FC;
+    --mercedes-silver: #27F4D2;
+    --mercedes-black: #000000;
+    --red-bull-navy: #3671C6;
+    --red-bull-red: #DC0000;
+    --ferrari-red: #E8002D;
+    --ferrari-yellow: #FFF200;
+    --aston-martin-green: #229971;
+    --aston-martin-lime: #CEDC00;
+    --alpine-pink: #FF87BC;
+    --alpine-blue: #0093CC;
+    --williams-blue: #64C4FF;
+    --williams-white: #FFFFFF;
+    --haas-grey: #B6BABD;
+    --haas-red: #ED1B2C;
+    --rb-navy: #6692FF;
+    --rb-red: #DC0000;
+    --kick-green: #52E252;
+    --kick-black: #00FF00;
+    --alpine-british-racing-green: #1e3a2c;
+
+    /* Site Colours */
+    --f1-red: #E10600;
+    --dark-bg: #15151E;
+    --light-grey: #38383F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a24 100%);
+    color: white;
+    padding: 3rem 0;
+    border-bottom: 4px solid var(--f1-red);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   COUNTDOWN TIMER
+   ======================================== */
+
+.countdown-section {
+    background: linear-gradient(135deg, var(--f1-red) 0%, #c00500 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-block {
+    text-align: center;
+    min-width: 100px;
+}
+
+.countdown-number {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    display: block;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.next-race-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.next-race-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.next-race-info p {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+
+    .countdown-timer {
+        gap: 1rem;
+    }
+
+    .countdown-block {
+        min-width: 70px;
+    }
+}
+
+/* ========================================
+   CARDS & BOXES
+   ======================================== */
+
+.card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--dark-bg);
+}
+
+/* ========================================
+   RACE CARDS
+   ======================================== */
+
+.race-card {
+    margin-bottom: 1.5rem;
+}
+
+.race-card .card-header {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--light-grey) 100%);
+    color: white;
+    font-weight: 700;
+    padding: 1rem 1.25rem;
+}
+
+.race-number {
+    background: var(--f1-red);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.race-date {
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   TEAM CARDS
+   ======================================== */
+
+.team-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.team-card .card-body {
+    padding: 1.5rem;
+}
+
+.team-colour-strip {
+    height: 8px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Individual Team Colours */
+.team-mclaren .team-colour-strip,
+.team-mclaren-formula-1-team .team-colour-strip {
+    background: linear-gradient(90deg, var(--mclaren-papaya) 0%, var(--mclaren-blue) 100%);
+}
+
+.team-mercedes .team-colour-strip,
+.team-mercedes-amg-petronas-f1-team .team-colour-strip {
+    background: linear-gradient(90deg, var(--mercedes-silver) 0%, var(--mercedes-black) 100%);
+}
+
+.team-red-bull-racing .team-colour-strip {
+    background: linear-gradient(90deg, var(--red-bull-navy) 0%, var(--red-bull-red) 100%);
+}
+
+.team-ferrari .team-colour-strip,
+.team-scuderia-ferrari .team-colour-strip {
+    background: linear-gradient(90deg, var(--ferrari-red) 0%, var(--ferrari-yellow) 100%);
+}
+
+.team-aston-martin .team-colour-strip,
+.team-aston-martin-aramco-f1-team .team-colour-strip {
+    background: linear-gradient(90deg, var(--aston-martin-green) 0%, var(--aston-martin-lime) 100%);
+}
+
+.team-alpine .team-colour-strip,
+.team-bwt-alpine-f1-team .team-colour-strip {
+    background: linear-gradient(90deg, var(--alpine-pink) 0%, var(--alpine-blue) 100%);
+}
+
+.team-williams .team-colour-strip,
+.team-williams-racing .team-colour-strip {
+    background: linear-gradient(90deg, var(--williams-blue) 0%, var(--williams-white) 100%);
+}
+
+.team-haas .team-colour-strip {
+    background: linear-gradient(90deg, var(--haas-grey) 0%, var(--haas-red) 100%);
+}
+
+.team-rb .team-colour-strip,
+.team-visa-cash-app-rb-f1-team .team-colour-strip {
+    background: linear-gradient(90deg, var(--rb-navy) 0%, var(--rb-red) 100%);
+}
+
+.team-kick-sauber .team-colour-strip {
+    background: linear-gradient(90deg, var(--kick-green) 0%, var(--kick-black) 100%);
+}
+
+.team-cadillac .team-colour-strip,
+.team-cadillac-f1-team .team-colour-strip {
+    background: linear-gradient(90deg, #000000 0%, #FFD700 100%);
+}
+
+.team-audi .team-colour-strip,
+.team-audi-f1-team .team-colour-strip {
+    background: linear-gradient(90deg, #BB0A30 0%, #000000 100%);
+}
+
+.team-position {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--f1-red);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   DRIVER CARDS
+   ======================================== */
+
+.driver-card {
+    margin-bottom: 1.5rem;
+}
+
+.driver-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.driver-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--f1-red);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+
+.badge {
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+}
+
+.championship-badge {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-f1 {
+    background: linear-gradient(135deg, var(--f1-red) 0%, #c00500 100%);
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(225, 6, 0, 0.3);
+    transition: all 0.3s ease;
+    will-change: transform;
+}
+
+.btn-f1:hover {
+    background: linear-gradient(135deg, #c00500 0%, var(--f1-red) 100%);
+    box-shadow: 0 6px 20px rgba(225, 6, 0, 0.4);
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* ========================================
+   SOCIAL ICONS
+   ======================================== */
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: #666;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--f1-red);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--f1-red);
+}
+
+.text-f1 {
+    color: var(--f1-red);
+}
+
+.bg-f1 {
+    background-color: var(--f1-red);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.hover-link:hover {
+    color: #e10600 !important;
+    transition: color 0.2s;
+}

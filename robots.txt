@@ -1,0 +1,29 @@
+# EnterF1.com — robots.txt
+# https://www.enterf1.com/robots.txt
+
+# Default: allow everything
+User-agent: *
+Allow: /
+
+# AI crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block admin area from all crawlers
+User-agent: *
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://www.enterf1.com/sitemap.xml

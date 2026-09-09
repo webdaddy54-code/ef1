@@ -1,0 +1,7 @@
+database.sqlite
+.DS_Store
+/admin/generate_hash.php
+config.php
+.htaccess
+htaccess
+
