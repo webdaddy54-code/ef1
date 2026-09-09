@@ -1,0 +1,504 @@
+# ==============================================================================
+# EnterF1.com - .htaccess
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Core Settings
+# ------------------------------------------------------------------------------
+Options -Indexes
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Sitemap
+    RewriteRule ^sitemap\.xml$ /sitemap.php [L]
+
+# Force HTTPS — DISABLED for staging (Cloudways handles SSL at server level)
+# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Force www — DISABLED for staging
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - British Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^british-grand-prix$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/silverstone-location$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/facts-and-race-information$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/silverstone-weather$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/gp-history-and-memorable-moments$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/camping-at-british-grand-prix-silverstone$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/club-corner$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/international-pit-straight$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/becketts-club-silverstone$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/stowe$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/abbey$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/village$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/luffield$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/woodcote$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/copse$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-sit-at-silverstone/national-pit-straight$ /races/where-to-sit.php?guide=where-to-sit-at-silverstone [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/silverstone-parking$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/silverstone-hotels$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/questions-and-answers$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/free-notifications$ / [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/where-to-buy-the-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/accommodation$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/helpful-links$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/public-transport$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/british-grand-prix-coach$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/f1-tickets/british-f1-grand-prix-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^f1-tickets/british-f1-grand-prix-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Belgian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^belgian-grand-prix$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+    RewriteRule ^belgian-grand-prix/where-to-sit-at-spa-francorchamps$ /races/where-to-sit.php?guide=where-to-sit-at-spa-francorchamps [L,R=301,QSA]
+    RewriteRule ^belgian-grand-prix/facts-and-race-information$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+    RewriteRule ^belgian-grand-prix/spa-francorchamps-location$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+    RewriteRule ^belgian-grand-prix/spa-francorchamps-weather$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+    RewriteRule ^belgian-grand-prix/gp-history-and-memorable-moments$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Spanish Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^spanish-grand-prix$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+    RewriteRule ^spanish-grand-prix/where-to-sit-at-the-circuit-de-catalunya$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+    RewriteRule ^spanish-grand-prix/facts-and-race-information$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+    RewriteRule ^spanish-grand-prix/barcelona-map-directions$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+    RewriteRule ^spanish-grand-prix/barcelona-weather$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+    RewriteRule ^spanish-grand-prix/gp-history-and-memorable-moments$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Static Pages
+    # ------------------------------------------------------------------
+    RewriteRule ^about$ /about.php [L,R=301,QSA]
+    RewriteRule ^blog/(.*)$ https://www.enterf1.com/ [L,R=301]
+    RewriteRule ^category/(.*)$ https://www.enterf1.com/ [L,R=301]
+    RewriteRule ^author/(.*)$ https://www.enterf1.com/ [L,R=301]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Italian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^italian-grand-prix$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+    RewriteRule ^italian-grand-prix/where-to-sit-at-monza$ /races/where-to-sit.php?guide=where-to-sit-at-monza [L,R=301,QSA]
+    RewriteRule ^italian-grand-prix/facts-and-race-information$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+    RewriteRule ^italian-grand-prix/monza-map-directions$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+    RewriteRule ^italian-grand-prix/monza-weather$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+    RewriteRule ^italian-grand-prix/gp-history-and-memorable-moments$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Monaco Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^monaco-grand-prix$ /races/race.php?slug=monaco-grand-prix [L,R=301,QSA]
+    RewriteRule ^monaco-grand-prix/facts-and-race-information$ /races/race.php?slug=monaco-grand-prix [L,R=301,QSA]
+    RewriteRule ^monaco-grand-prix/monte-carlo-map-and-directions$ /races/race.php?slug=monaco-grand-prix [L,R=301,QSA]
+    RewriteRule ^monaco-grand-prix/monte-carlo-weather$ /races/race.php?slug=monaco-grand-prix [L,R=301,QSA]
+    RewriteRule ^monaco-grand-prix/gp-history-and-memorable-moments$ /races/race.php?slug=monaco-grand-prix [L,R=301,QSA]
+    RewriteRule ^monaco-grand-prix/where-to-sit-at-monaco$ /races/where-to-sit.php?guide=where-to-sit-at-monaco [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Australian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^australian-grand-prix$ /races/race.php?slug=australian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Malaysia / Russia / Germany (Off Calendar)
+    # ------------------------------------------------------------------
+    RewriteRule ^malaysia-grand-prix$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Chinese Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^chinese-grand-prix$ /races/race.php?slug=chinese-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Bahrain Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^bahrain-grand-prix$ /races/race.php?slug=bahrain-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Canadian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^canadian-grand-prix$ /races/race.php?slug=canadian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - German Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^german-grand-prix$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Hungarian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^hungarian-grand-prix$ /races/race.php?slug=hungarian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Singapore Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^singapore-grand-prix$ /races/race.php?slug=singapore-grand-prix [L,R=301,QSA]
+    RewriteRule ^japanese-grand-prix$ /races/race.php?slug=japanese-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Abu Dhabi Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^abu-dhabi-grand-prix$ /races/race.php?slug=abu-dhabi-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - United States Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^united-states-grand-prix$ /races/race.php?slug=united-states-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Brazilian GP (Now Sao Paulo GP)
+    # ------------------------------------------------------------------
+    RewriteRule ^brazilian-grand-prix$ /races/race.php?slug=brazilian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Tickets
+    # ------------------------------------------------------------------
+    RewriteRule ^where-to-buy-f1-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^f1-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Removed Sections
+    # ------------------------------------------------------------------
+    RewriteRule ^blog$ / [L,R=301,QSA]
+    RewriteRule ^f1-paddock-club$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/silverstone-ticket-bands-explained$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Monaco Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^monaco-grand-prix/tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Austrian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^austrian-grand-prix$ /races/race.php?slug=austrian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Russian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^russian-grand-prix$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Belgian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^belgian-grand-prix/belgium-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Classifieds (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^formula-one-classified-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/show-ad$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/reply-to-ad$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/edit-ad$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/place-ad$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/renew-ad$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/browse-ads$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/grand-prix-tickets-classifieds-categories$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/search-ads$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/payment-thank-you$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^formula-one-classified-tickets/cancel-payment$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^gootickts-reviews$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Austrian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^austrian-grand-prix/where-to-sit-guide$ /races/where-to-sit.php?guide=where-to-sit-at-the-red-bull-ring [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Misc Old Pages
+    # ------------------------------------------------------------------
+    RewriteRule ^sample-page$ / [L,R=301,QSA]
+    RewriteRule ^f1-tickets-page$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^tag/f1-testing$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^grand-prix-guides$ /races/ [L,R=301,QSA]
+    RewriteRule ^contact-team$ /contact.php [L,R=301,QSA]
+    RewriteRule ^tag/f1-competition$ /contact.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Singapore Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^singapore-grand-prix/where-to-sit-at-the-singapore-grand-prix$ /races/race.php?slug=singapore-grand-prix [L,R=301,QSA]
+    RewriteRule ^british-grand-prix/2015-silverstone-motogp$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/what-to-expect$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-providers$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/hospitality-finder$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/jdc-promotions$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Australian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^australian-grand-prix/info-for-the-australian-f1-gp$ /races/race.php?slug=australian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/formula-1-hospitality-enquiry$ /contact.php [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-locations$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/monaco-packages$ /races/race.php?slug=monaco-grand-prix [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/silverstone-packages$ /races/race.php?slug=british-grand-prix [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/albert-park-packages$ /races/race.php?slug=australian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Spanish Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^spanish-grand-prix/where-to-sit-at-the-circuit-de-catalunya/catalunya-general-admission$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/spanish-grand-prix-packages$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Austrian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^austrian-grand-prix/2015-austria-f1-ticket-update$ /races/race.php?slug=austrian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/f1-hospitality-providers/tn4-hospitality$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Merchandise (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-merchandise/mercedes-f1-merchandise$ /teams/team.php?slug=mercedes-amg-petronas-f1-team [L,R=301,QSA]
+    RewriteRule ^f1-merchandise$ /teams/ [L,R=301,QSA]
+    RewriteRule ^f1-merchandise/scuderia-ferrari-f1-merchandise$ /teams/team.php?slug=scuderia-ferrari [L,R=301,QSA]
+    RewriteRule ^f1-merchandise/williams-f1-merchandise$ /teams/team.php?slug=williams-racing [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Misc Old Pages
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-facebook-banter$ / [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Belgian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^belgian-grand-prix/belgium-formula-1-grand-prix-review$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+    RewriteRule ^belgian-grand-prix/faqs-about-going-to-the-belgian-grand-prix$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Hungarian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^hungarian-grand-prix/faqs-about-going-to-the-hungarian-grand-prix$ /races/race.php?slug=hungarian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Formula E (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^formula-e$ / [L,R=301,QSA]
+    RewriteRule ^author/spurnell$ / [L,R=301,QSA]
+    RewriteRule ^formula-e/a-guide-to-the-formula-e-cars$ / [L,R=301,QSA]
+    RewriteRule ^formula-e/championship-2015-16-calendar$ / [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Austrian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^austrian-grand-prix/austrian-grand-prix-faqs$ /races/race.php?slug=austrian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Italian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^italian-grand-prix/faqs-about-going-to-the-italian-grand-prix$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Australian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^australian-grand-prix/where-to-sit-albert-park$ /races/race.php?slug=australian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/red-eye-events$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Australian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^australian-grand-prix/travel-and-accommodation$ /races/race.php?slug=australian-grand-prix [L,R=301,QSA]
+    RewriteRule ^australian-grand-prix/frequently-asked-questions$ /races/race.php?slug=australian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - UK Motorsport (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^uk-motorsport$ / [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Bahrain Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^bahrain-grand-prix/where-to-sit$ /races/race.php?slug=bahrain-grand-prix [L,R=301,QSA]
+    RewriteRule ^bahrain-grand-prix/travel-and-accommodation$ /races/race.php?slug=bahrain-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - UK Motorsport (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^uk-motorsport/750-motor-club$ / [L,R=301,QSA]
+    RewriteRule ^uk-motorsport/snetterton-circuit$ / [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Bahrain Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^bahrain-grand-prix/frequently-asked-questions$ /races/race.php?slug=bahrain-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - UK Motorsport (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^uk-motorsport/cadwell-park-circuit-2$ / [L,R=301,QSA]
+    RewriteRule ^uk-motorsport/thruxton-circuit$ / [L,R=301,QSA]
+    RewriteRule ^uk-motorsport/croft-circuit$ / [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Chinese Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^chinese-grand-prix/where-to-sit-at-the-chinese-grand-prix$ /races/race.php?slug=chinese-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Merchandise (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-merchandise/red-bull-merchandise$ /teams/team.php?slug=red-bull-racing [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Spanish Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^spanish-grand-prix/faqs-going-spanish-grand-prix$ /races/race.php?slug=barcelona-catalunya-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Chinese Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^chinese-grand-prix/china-grand-prix-travel-accommodation-guide$ /races/race.php?slug=chinese-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Russian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^russian-grand-prix/sit-russian-grand-prix$ /races/ [L,R=301,QSA]
+    RewriteRule ^russian-grand-prix/travel-accommodation-guide$ /races/ [L,R=301,QSA]
+    RewriteRule ^russian-grand-prix/russian-grand-prix-faqs$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - German Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^german-grand-prix/sit-german-grand-prix$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/amber-lounge$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - German Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^german-grand-prix/travel-accommodation-guide$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/filth$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - German Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^german-grand-prix/german-grand-prix-faqs$ /races/ [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Canadian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^canadian-grand-prix/where-to-sit-guide$ /races/race.php?slug=canadian-grand-prix [L,R=301,QSA]
+    RewriteRule ^canadian-grand-prix/travel-accommodation-guide$ /races/race.php?slug=canadian-grand-prix [L,R=301,QSA]
+    RewriteRule ^canadian-grand-prix/frequently-asked-questions$ /races/race.php?slug=canadian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Hungarian Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^hungarian-grand-prix/where-to-sit$ /races/where-to-sit.php?guide=where-to-sit-at-the-hungaroring [L,R=301,QSA]
+    RewriteRule ^hungarian-grand-prix/travel-accommodation-guide$ /races/race.php?slug=hungarian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - United States Grand Prix
+    # ------------------------------------------------------------------
+    RewriteRule ^united-states-grand-prix/where-to-sit$ /races/race.php?slug=united-states-grand-prix [L,R=301,QSA]
+    RewriteRule ^united-states-grand-prix/faqs-going-usa-grand-prix$ /races/race.php?slug=united-states-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/monza-italian-grand-prix$ /races/race.php?slug=italian-grand-prix [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - Old Comparison Pages
+    # ------------------------------------------------------------------
+    RewriteRule ^compare-monza-f1-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+    RewriteRule ^compare-spa-f1-tickets$ /where-to-buy-f1-tickets.php [L,R=301,QSA]
+
+    # ------------------------------------------------------------------
+    # 301 Redirects - F1 Hospitality (Removed)
+    # ------------------------------------------------------------------
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/belgium-grand-prix-hospitality-packages$ /races/race.php?slug=belgian-grand-prix [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/singapore-f1-hospitality-packages$ /races/race.php?slug=singapore-grand-prix [L,R=301,QSA]
+    RewriteRule ^f1-hospitality/f1-hospitality-locations/mexico-formula-1-hospitality-packages$ /races/race.php?slug=mexico-city-grand-prix [L,R=301,QSA]
+
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# Security Headers
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Existing headers (switched to 'always set' so they apply to error pages too)
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options SAMEORIGIN
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Content Security Policy
+    # Allows: self, inline styles (needed for countdown/JS), Google Fonts, YouTube embeds
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self'"
+
+    # HTTP Strict Transport Security (HSTS)
+    # Tells browsers to always use HTTPS for this domain for 1 year
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Permissions Policy (formerly Feature Policy)
+    # Disable browser features the site doesn't use
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# Browser Caching
+# ------------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# Compression
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
