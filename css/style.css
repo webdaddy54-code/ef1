@@ -295,7 +295,8 @@ a {
     background: linear-gradient(90deg, var(--williams-blue) 0%, var(--williams-white) 100%);
 }
 
-.team-haas .team-colour-strip {
+.team-haas .team-colour-strip,
+.team-moneygram-haas-f1-team .team-colour-strip {
     background: linear-gradient(90deg, var(--haas-grey) 0%, var(--haas-red) 100%);
 }
 

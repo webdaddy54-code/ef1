@@ -10,6 +10,14 @@ $drivers = getAllDrivers($pdo);
 // Get all teams for filtering
 $teams = getAllTeams($pdo);
 
+// Map driver full name => team slug for card colouring
+// (drivers.team_name is unpopulated; teams.driver_1/driver_2 holds the names)
+$teamSlugs = [];
+foreach ($teams as $t) {
+    if (!empty($t['driver_1'])) $teamSlugs[trim($t['driver_1'])] = $t['slug'];
+    if (!empty($t['driver_2'])) $teamSlugs[trim($t['driver_2'])] = $t['slug'];
+}
+
 include '../includes/header.php';
 ?>
 
@@ -75,8 +83,10 @@ include '../includes/header.php';
 
         <div class="row">
             <?php foreach ($drivers as $driver): ?>
+                <?php $teamSlug = $teamSlugs[trim($driver['full_name'])] ?? ''; ?>
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card driver-card h-100">
+                    <div class="card driver-card<?php echo $teamSlug ? ' team-' . htmlspecialchars($teamSlug) : ''; ?> h-100">
+                        <div class="team-colour-strip"></div>
                         <div class="card-body position-relative">
                             <?php if ($driver['driver_number']): ?>
                                 <div class="driver-number">
