@@ -340,7 +340,7 @@ include 'includes/header.php';
             <?php
             $stmtUpcoming = $pdo->prepare("
                 SELECT * FROM races 
-                WHERE race_date >= DATE('now')
+                WHERE race_date >= CURDATE()
                 ORDER BY race_date ASC 
                 LIMIT 5
             ");

@@ -673,7 +673,7 @@ include '../includes/header.php';
             // Get next 5 races in chronological order
             $stmtUpcoming = $pdo->prepare("
                 SELECT * FROM races 
-                WHERE race_date >= DATE('now')
+                WHERE race_date >= CURDATE()
                 ORDER BY race_date ASC 
                 LIMIT 5
             ");
