@@ -5,3 +5,10 @@ config.php
 
 # Project docs — keep off live site
 *.md
+
+# Local DB backups — keep off live site
+backups/
+
+# Migration script holds credentials — keep out of git
+migrate-sqlite-to-mysql.php
+config-mysql.php
