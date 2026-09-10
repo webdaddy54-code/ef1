@@ -203,6 +203,26 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         </div>
     </div>
 
+    <!-- Admin Navigation -->
+    <div class="admin-nav" style="background:#23232d; padding:0.5rem 0;">
+        <div class="container-fluid">
+            <ul class="nav nav-pills flex-column flex-md-row">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.php" style="color:#fff; background:rgba(255,255,255,0.1);"><i class="bi bi-trophy-fill"></i> Race Results</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="races.php" style="color:rgba(255,255,255,0.8);"><i class="bi bi-calendar-event"></i> Races</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="teams.php" style="color:rgba(255,255,255,0.8);"><i class="bi bi-people-fill"></i> Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="drivers.php" style="color:rgba(255,255,255,0.8);"><i class="bi bi-person-fill"></i> Drivers</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="container-fluid my-4 px-3 px-md-4">
         
         <h2 class="section-title"><i class="bi bi-plus-circle-fill text-danger"></i> Add Race Results</h2>
