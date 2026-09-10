@@ -43,16 +43,88 @@ include 'includes/header.php';
 <!-- Main Content -->
 <article class="container my-5">
 
-    <!-- Coming Soon Banner -->
+    <!-- Live Competitions -->
+    <?php
+    $today = date('Y-m-d');
+    $stmt = $pdo->prepare("
+        SELECT * FROM competitions
+        WHERE status = :status
+          AND (closes_date IS NULL OR closes_date >= :today)
+        ORDER BY (closes_date IS NULL), closes_date ASC
+    ");
+    $stmt->execute([':status' => 'active', ':today' => $today]);
+    $liveCompetitions = $stmt->fetchAll();
+
+    $categoryLabels = [
+        'team'     => 'Team',
+        'sponsor'  => 'Sponsor',
+        'official' => 'Official',
+        'circuit'  => 'Circuit',
+        'media'    => 'Media',
+        'other'    => 'Other',
+    ];
+    $categoryClasses = [
+        'team'     => 'bg-danger',
+        'sponsor'  => 'bg-warning text-dark',
+        'official' => 'bg-dark',
+        'circuit'  => 'bg-success',
+        'media'    => 'bg-info text-dark',
+        'other'    => 'bg-secondary',
+    ];
+    ?>
+
     <div class="row mb-5">
         <div class="col-lg-8 mx-auto">
+            <h2 class="section-title"><i class="bi bi-trophy-fill text-danger"></i> Live Competitions</h2>
+
+            <?php if (empty($liveCompetitions)): ?>
             <div class="card border-f1">
                 <div class="card-body text-center py-5">
-                    <h2 class="text-f1 mb-3"><i class="bi bi-megaphone-fill"></i> NEW Competitions Coming Soon</h2>
-                    <p class="lead mb-3">We are preparing new competitions and giveaways for the 2026 Formula 1 season. Check back regularly for your chance to win Grand Prix tickets, signed merchandise and exclusive F1 experiences.</p>
-                    <p class="text-muted">Bookmark this page &mdash; we update it throughout the season as new competitions launch.</p>
+                    <h3 class="text-f1 mb-3"><i class="bi bi-calendar-x"></i> No Live Competitions Right Now</h3>
+                    <p class="lead mb-3">There are no open Formula 1 competitions at the moment. New prize draws and giveaways usually launch around big race weekends and during the season.</p>
+                    <p class="text-muted mb-0">Bookmark this page and check back &mdash; we update it as soon as new competitions go live.</p>
                 </div>
             </div>
+            <?php else: ?>
+            <div class="row g-4">
+                <?php foreach ($liveCompetitions as $comp): ?>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 competition-card">
+                        <div class="card-body">
+                            <h4 class="card-title"><?php echo htmlspecialchars($comp['title']); ?></h4>
+                            <p class="text-muted mb-2"><i class="bi bi-building"></i> <?php echo htmlspecialchars($comp['organiser']); ?></p>
+                            <div class="mb-3">
+                                <span class="badge <?php echo htmlspecialchars($categoryClasses[$comp['category']] ?? 'bg-secondary'); ?>">
+                                    <?php echo htmlspecialchars($categoryLabels[$comp['category']] ?? ucfirst($comp['category'])); ?>
+                                </span>
+                                <?php if (!empty($comp['region'])): ?>
+                                <span class="badge bg-light text-dark border">
+                                    <i class="bi bi-geo-alt"></i> <?php echo htmlspecialchars($comp['region']); ?>
+                                </span>
+                                <?php endif; ?>
+                            </div>
+                            <p class="card-text"><strong>Prize:</strong> <?php echo htmlspecialchars($comp['prize']); ?></p>
+                            <?php if (!empty($comp['closes_date'])): ?>
+                            <p class="card-text text-danger fw-bold">
+                                <i class="bi bi-clock"></i> Closes <?php echo htmlspecialchars(formatDateShort($comp['closes_date'])); ?>
+                            </p>
+                            <?php endif; ?>
+                            <?php if (!empty($comp['notes'])): ?>
+                            <p class="card-text small text-muted"><?php echo nl2br(htmlspecialchars($comp['notes']), false); ?></p>
+                            <?php endif; ?>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <?php if (!empty($comp['url'])): ?>
+                            <a href="<?php echo htmlspecialchars($comp['url']); ?>" target="_blank" rel="noopener" class="btn btn-f1 w-100">
+                                <i class="bi bi-box-arrow-up-right"></i> Enter competition
+                            </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 

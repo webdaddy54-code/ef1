@@ -219,6 +219,9 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 <li class="nav-item">
                     <a class="nav-link" href="drivers.php" style="color:rgba(255,255,255,0.8);"><i class="bi bi-person-fill"></i> Drivers</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="competitions.php" style="color:rgba(255,255,255,0.8);"><i class="bi bi-gift"></i> Competitions</a>
+                </li>
             </ul>
         </div>
     </div>
