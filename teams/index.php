@@ -3,6 +3,7 @@ require_once '../config.php';
 
 $currentPage = 'teams';
 $pageTitle = '2026 F1 Teams';
+$canonicalUrl = SITE_URL . '/teams/';
 
 // Get all teams with driver numbers from drivers table
 $teams = getTeamsWithDriverNumbers($pdo);
@@ -21,12 +22,12 @@ include '../includes/header.php';
 <!-- Main Content -->
 <div class="container my-5">
 
-    <!-- 2025 Championship Standings -->
+    <h2 class="section-title">2025 Constructor Standings</h2>
     <div class="row mb-5">
         <div class="col-12">
             <div class="card">
                 <div class="card-header bg-dark text-white">
-                    <h4 class="mb-0"><i class="bi bi-trophy-fill text-warning"></i> 2025 Constructor Standings</h4>
+                    <h3 class="mb-0"><i class="bi bi-trophy-fill text-warning"></i> 2025 Constructor Standings</h3>
                 </div>
                 <div class="card-body">
                     <p class="text-muted">Teams ranked by their 2025 championship finishing positions</p>
@@ -35,7 +36,7 @@ include '../includes/header.php';
         </div>
     </div>
 
-    <!-- Teams Grid -->
+    <h2 class="section-title">2026 Constructor Teams</h2>
     <div class="row">
         <?php foreach ($teams as $index => $team): ?>
             <div class="col-md-6 col-lg-4 mb-4">
@@ -48,13 +49,13 @@ include '../includes/header.php';
                             </div>
                         <?php endif; ?>
 
-                        <h4 class="card-title mt-3 mb-3"><?php echo htmlspecialchars($team['team_name']); ?></h4>
+                        <h3 class="card-title mt-3 mb-3"><?php echo htmlspecialchars($team['team_name']); ?></h3>
 
                         <!-- Drivers -->
                         <div class="mb-3">
-                            <h6 class="text-muted mb-2">
+                            <h4 class="text-muted mb-2">
                                 <i class="bi bi-people-fill"></i> Drivers
-                            </h6>
+                            </h4>
                             <p class="mb-1">
                                 <i class="bi bi-person"></i> <?php echo htmlspecialchars($team['driver_1']); ?>
                                 <span class="badge bg-secondary">#<?php echo $team['driver_1_number']; ?></span>
@@ -67,18 +68,18 @@ include '../includes/header.php';
 
                         <!-- Engine -->
                         <div class="mb-3">
-                            <h6 class="text-muted mb-2">
+                            <h4 class="text-muted mb-2">
                                 <i class="bi bi-gear-fill"></i> Power Unit
-                            </h6>
+                            </h4>
                             <p class="mb-0"><?php echo htmlspecialchars($team['engine_supplier']); ?></p>
                         </div>
 
                         <!-- Team Principal -->
                         <?php if ($team['team_principal']): ?>
                             <div class="mb-3">
-                                <h6 class="text-muted mb-2">
+                                <h4 class="text-muted mb-2">
                                     <i class="bi bi-person-badge"></i> Team Principal
-                                </h6>
+                                </h4>
                                 <p class="mb-0"><?php echo htmlspecialchars($team['team_principal']); ?></p>
                             </div>
                         <?php endif; ?>

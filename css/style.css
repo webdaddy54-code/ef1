@@ -208,6 +208,26 @@ a {
     color: var(--dark-bg);
 }
 
+/* Card titles converted to h3 for correct heading hierarchy — keep the old visual size */
+h3.card-title {
+    font-size: 1.5rem;
+}
+
+.race-card .card-title,
+.card.bg-light .card-title {
+    font-size: 1.25rem;
+}
+
+.team-card .card-title,
+.driver-card .card-title {
+    font-size: 1.5rem;
+}
+
+/* Keep small sub-headings inside team cards visually unchanged after h4 swap */
+.team-card h4.text-muted {
+    font-size: 1rem;
+}
+
 /* ========================================
    RACE CARDS
    ======================================== */

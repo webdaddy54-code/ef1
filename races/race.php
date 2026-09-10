@@ -21,8 +21,6 @@ if (!$race) {
 $tvSchedule = getTvScheduleSummaryByRaceId($pdo, $race['race_id']);
   $hasChannel4 = raceHasChannel4Coverage($pdo, $race['race_id']);
 
-$pageTitle = $race['event_name'];
-
 // Load seating guide (if published) and ticket providers for this race
 $seatingGuide = getSeatingGuideByRaceId($pdo, $race['race_id']);
 $ticketProviders = getTicketProviders($pdo, $race['race_id']);
@@ -32,6 +30,17 @@ $metaTitle = $race['event_name'] . ' at ' . $race['circuit_name'] . ' on ' . dat
 $metaDescription = 'The 2026 Formula 1 ' . $race['event_name'] . ' is a ' . strtolower($race['circuit_type']) . ' circuit race held near ' . $race['nearest_city'] . '. The race takes place on ' . date('l, jS F Y', strtotime($race['race_date'])) . ' at ' . $race['circuit_name'] . '.';
 $metaKeywords = $race['event_name'] . ', ' . $race['circuit_name'] . ', ' . $race['country'] . ', F1 2026, Formula 1, ' . $race['nearest_city'] . ', ' . $race['circuit_type'] . ' circuit';
 $canonicalUrl = SITE_URL . '/races/race.php?slug=' . $race['slug'];
+
+// Breadcrumb schema
+$breadcrumbSchema = [
+    "@context" => "https://schema.org",
+    "@type" => "BreadcrumbList",
+    "itemListElement" => [
+        ["@type" => "ListItem", "position" => 1, "name" => "Home", "item" => SITE_URL . '/'],
+        ["@type" => "ListItem", "position" => 2, "name" => "Races", "item" => SITE_URL . '/races/'],
+        ["@type" => "ListItem", "position" => 3, "name" => $race['event_name'], "item" => $canonicalUrl]
+    ]
+];
 
 // Schema.org JSON-LD for SportsEvent
 $schemaData = [
@@ -81,6 +90,10 @@ if ($ticketData && ($ticketData['ga_sunday'] || $ticketData['ga_3day'])) {
         "url" => "https://www.gpticketshop.com"
     ];
 }
+
+// Combine SportsEvent and BreadcrumbList schemas; use the rich meta title as page title
+$schemaData = [$schemaData, $breadcrumbSchema];
+$pageTitle = $metaTitle;
 
 include '../includes/header.php';
 ?>

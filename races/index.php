@@ -3,6 +3,7 @@ require_once '../config.php';
 
 $currentPage = 'races';
 $pageTitle = '2026 Race Calendar';
+$canonicalUrl = SITE_URL . '/races/';
 
 // Get all races
 $races = getAllRaces($pdo);
@@ -24,7 +25,7 @@ include '../includes/header.php';
 <!-- Main Content -->
 <div class="container my-5">
     
-    <!-- Season Stats -->
+    <h2 class="section-title">Season at a Glance</h2>
     <div class="row mb-5">
         <div class="col-md-3 col-6 mb-3">
             <div class="card text-center">
@@ -97,7 +98,7 @@ include '../includes/header.php';
                         <?php endif; ?>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($race['event_name']); ?></h5>
+                        <h3 class="card-title"><?php echo htmlspecialchars($race['event_name']); ?></h3>
                         
                         <p class="text-muted mb-2">
                             <i class="bi bi-pin-map-fill"></i> 
@@ -142,12 +143,12 @@ include '../includes/header.php';
         </div>
     </section>
     
-    <!-- Legend -->
+    <h2 class="section-title">Circuit Types</h2>
     <div class="row mt-5">
         <div class="col-12">
             <div class="card bg-light">
                 <div class="card-body">
-                    <h5 class="card-title">Circuit Types</h5>
+                    <h3 class="card-title">Circuit Types</h3>
                     <div class="d-flex flex-wrap gap-3">
                         <div>
                             <span class="badge bg-success">Track Circuit</span>

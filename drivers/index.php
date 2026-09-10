@@ -3,6 +3,7 @@ require_once '../config.php';
 
 $currentPage = 'drivers';
 $pageTitle = '2026 F1 Drivers';
+$canonicalUrl = SITE_URL . '/drivers/';
 
 // Get all drivers
 $drivers = getAllDrivers($pdo);
@@ -95,7 +96,7 @@ include '../includes/header.php';
                             <?php endif; ?>
 
                             <div style="padding-top: 3rem;">
-                                <h4 class="card-title mb-1"><?php echo htmlspecialchars($driver['full_name']); ?></h4>
+                                <h3 class="card-title mb-1"><?php echo htmlspecialchars($driver['full_name']); ?></h3>
                                 <p class="text-muted mb-3">
                                     <i class="bi bi-flag-fill"></i> <?php echo htmlspecialchars($driver['nationality']); ?>
                                 </p>
@@ -153,13 +154,14 @@ include '../includes/header.php';
     </section>
 
     <!-- Top Performers -->
+    <h2 class="section-title">Top Performers</h2>
     <div class="row mt-5">
         <div class="col-md-6 mb-4">
             <div class="card bg-light">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h3 class="card-title">
                         <i class="bi bi-trophy-fill text-warning"></i> Most Race Wins
-                    </h5>
+                    </h3>
                     <ul class="list-unstyled mb-0">
                         <?php
                         $topWinners = $drivers;
@@ -186,9 +188,9 @@ include '../includes/header.php';
         <div class="col-md-6 mb-4">
             <div class="card bg-light">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h3 class="card-title">
                         <i class="bi bi-star-fill text-warning"></i> World Champions on Grid
-                    </h5>
+                    </h3>
                     <ul class="list-unstyled mb-0">
                         <?php
                         $champions = array_filter($drivers, function ($d) {

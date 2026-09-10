@@ -34,6 +34,19 @@ $metaDescription = $team['team_name'] . ' is a Formula 1 constructor team compet
 $metaKeywords = $team['team_name'] . ', F1 team, Formula 1, ' . $team['driver_1'] . ', ' . $team['driver_2'] . ', ' . $team['engine_supplier'] . ', ' . $team['team_principal'] . ', F1 2026';
 $canonicalUrl = SITE_URL . '/teams/team.php?slug=' . $team['slug'];
 
+// Breadcrumb schema
+$schemaDataExtra = [
+    [
+        "@context" => "https://schema.org",
+        "@type" => "BreadcrumbList",
+        "itemListElement" => [
+            ["@type" => "ListItem", "position" => 1, "name" => "Home", "item" => SITE_URL . '/'],
+            ["@type" => "ListItem", "position" => 2, "name" => "Teams", "item" => SITE_URL . '/teams/'],
+            ["@type" => "ListItem", "position" => 3, "name" => $team['team_name'], "item" => $canonicalUrl]
+        ]
+    ]
+];
+
 // Schema.org JSON-LD for SportsOrganization
 $schemaData = [
     "@context" => "https://schema.org",
@@ -100,6 +113,9 @@ if ($team['world_championships'] > 0) {
     }
     $schemaData['award'] = $awards;
 }
+
+// Combine SportsOrganization and BreadcrumbList schemas
+$schemaData = [$schemaData, $schemaDataExtra[0]];
 
 include '../includes/header.php';
 ?>

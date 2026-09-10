@@ -40,15 +40,26 @@ if (!isset($pdo)) {
         <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl); ?>">
     <?php endif; ?>
 
+    <?php
+    // Determine primary schema type for Open Graph (supports both single object and array of objects)
+    $schemaType = 'website';
+    if (isset($schemaData)) {
+        if (is_array($schemaData) && function_exists('array_is_list') && array_is_list($schemaData) && isset($schemaData[0]['@type'])) {
+            $schemaType = $schemaData[0]['@type'];
+        } elseif (isset($schemaData['@type'])) {
+            $schemaType = $schemaData['@type'];
+        }
+    }
+    ?>
     <!-- Open Graph / Facebook -->
-    <meta property="og:type"
-        content="<?php echo isset($schemaData) && isset($schemaData['@type']) && $schemaData['@type'] === 'SportsEvent' ? 'event' : 'website'; ?>">
+    <meta property="og:type" content="<?php echo $schemaType === 'SportsEvent' ? 'event' : 'website'; ?>">
     <meta property="og:url" content="<?php echo isset($canonicalUrl) ? htmlspecialchars($canonicalUrl) : SITE_URL; ?>">
     <meta property="og:title"
         content="<?php echo isset($metaTitle) ? htmlspecialchars($metaTitle) : (isset($pageTitle) ? htmlspecialchars($pageTitle) . ' | ' . SITE_NAME : SITE_NAME); ?>">
     <meta property="og:description"
         content="<?php echo isset($metaDescription) ? htmlspecialchars($metaDescription) : SITE_TAGLINE; ?>">
     <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
+    <meta property="og:image" content="<?php echo isset($ogImage) ? htmlspecialchars($ogImage) : SITE_URL . '/assets/images/enterf1-og-default.jpg'; ?>">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -57,6 +68,7 @@ if (!isset($pdo)) {
         content="<?php echo isset($metaTitle) ? htmlspecialchars($metaTitle) : (isset($pageTitle) ? htmlspecialchars($pageTitle) . ' | ' . SITE_NAME : SITE_NAME); ?>">
     <meta name="twitter:description"
         content="<?php echo isset($metaDescription) ? htmlspecialchars($metaDescription) : SITE_TAGLINE; ?>">
+    <meta name="twitter:image" content="<?php echo isset($ogImage) ? htmlspecialchars($ogImage) : SITE_URL . '/assets/images/enterf1-og-default.jpg'; ?>">
 
     <!-- Geo Tags (for location-based pages) -->
     <?php if (isset($race) && $race['latitude'] && $race['longitude']): ?>
@@ -68,7 +80,10 @@ if (!isset($pdo)) {
     <!-- Schema.org JSON-LD -->
     <?php if (isset($schemaData)): ?>
         <script type="application/ld+json">
-        <?php echo json_encode($schemaData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
+        <?php
+        // Supports a single schema object or an array of schema objects
+        echo json_encode($schemaData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        ?>
         </script>
     <?php endif; ?>
 

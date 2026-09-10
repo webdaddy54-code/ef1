@@ -5,6 +5,7 @@ $currentPage = 'tv-schedule';
 
 // SEO
 $metaTitle       = 'F1 TV Schedule 2026 UK | Sky Sports F1 & Channel 4 Times';
+$pageTitle       = 'F1 TV Schedule 2026 UK';
 $metaDescription = 'Full 2026 Formula 1 TV schedule for UK viewers. Sky Sports F1 live times and Channel 4 highlights for every race, sprint and qualifying session.';
 $metaKeywords    = 'f1 tv schedule, f1 tv schedule uk, f1 tv times, f1 tv guide, f1 sky sports schedule 2026, f1 channel 4 2026, formula 1 uk tv times, what channel is f1 on, f1 free to watch uk, f1 tv schedule this weekend';
 $canonicalUrl    = SITE_URL . '/f1-tv-schedule.php';

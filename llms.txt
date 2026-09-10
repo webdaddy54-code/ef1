@@ -57,15 +57,42 @@ Each race page includes circuit details, race date/time, track information, and 
 
 ## Where to Sit Guides
 
-Detailed grandstand-by-grandstand seating guides with overtaking ratings, coverage info, and recommendations.
+Grandstand-by-grandstand seating guides written from circuit knowledge: view quality by stand, overtaking spots, covered vs open seating, atmosphere, and value-for-money picks — the detail ticket sites don't give you.
 
-- [Where to Sit at Silverstone](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-silverstone) — British GP
-- [Where to Sit at Spa-Francorchamps](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-spa-francorchamps) — Belgian GP
-- [Where to Sit at Monza](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-monza) — Italian GP
-- [Where to Sit at Monaco](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-monaco) — Monaco GP
-- [Where to Sit at the Red Bull Ring](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-red-bull-ring) — Austrian GP
-- [Where to Sit at the Hungaroring](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-hungaroring) — Hungarian GP
-- [Where to Sit at the Australian Grand Prix](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-australian-grand-prix) — Australian GP
+- [Where to Sit at Silverstone](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-silverstone) — British GP: Copse, Maggotts/Becketts, Stowe and Vale compared; which stands see the most overtaking; covered options for changeable British weather
+- [Where to Sit at Spa-Francorchamps](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-spa-francorchamps) — Belgian GP: Eau Rouge/Raidillon vantage points, Kemmel Straight vs Bus Stop chicane, general admission banking tips
+- [Where to Sit at Monza](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-monza) — Italian GP: main straight tifosi atmosphere vs Parabolica, first-chicane action, best value grandstands at the Temple of Speed
+- [Where to Sit at Monaco](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-monaco) — Monaco GP: Casino Square, harbour views, Sainte Devote; what the most expensive race on the calendar actually gets you per stand
+- [Where to Sit at the Red Bull Ring](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-red-bull-ring) — Austrian GP: compact circuit means near-total track visibility; best elevation spots and general admission value
+- [Where to Sit at the Hungaroring](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-hungaroring) — Hungarian GP: tight and twisty — why main-straight seats matter here, Turn 1 overtaking views, budget-friendly options
+- [Where to Sit at the Australian Grand Prix](https://www.enterf1.com/races/where-to-sit.php?guide=where-to-sit-at-the-australian-grand-prix) — Australian GP: Albert Park lakeside stands, Turn 1 vs Turn 3 action, atmosphere vs view trade-offs
+
+## Driver Profiles (2026 Season)
+
+Profile pages for all 22 drivers: career stats, race number, nationality, age/date of birth, wins, poles and championships.
+
+- [Alexander Albon](https://www.enterf1.com/drivers/driver.php?slug=alexander-albon) — Williams Racing, #23
+- [Fernando Alonso](https://www.enterf1.com/drivers/driver.php?slug=fernando-alonso) — Aston Martin Aramco, #14
+- [Kimi Antonelli](https://www.enterf1.com/drivers/driver.php?slug=kimi-antonelli) — Mercedes-AMG Petronas, #12
+- [Oliver Bearman](https://www.enterf1.com/drivers/driver.php?slug=oliver-bearman) — MoneyGram Haas, #87
+- [Gabriel Bortoleto](https://www.enterf1.com/drivers/driver.php?slug=gabriel-bortoleto) — Audi F1 Team, #5
+- [Valtteri Bottas](https://www.enterf1.com/drivers/driver.php?slug=valtteri-bottas) — Cadillac F1 Team, #77
+- [Franco Colapinto](https://www.enterf1.com/drivers/driver.php?slug=franco-colapinto) — BWT Alpine, #43
+- [Pierre Gasly](https://www.enterf1.com/drivers/driver.php?slug=pierre-gasly) — BWT Alpine, #10
+- [Isack Hadjar](https://www.enterf1.com/drivers/driver.php?slug=isack-hadjar) — Red Bull Racing, #6
+- [Lewis Hamilton](https://www.enterf1.com/drivers/driver.php?slug=lewis-hamilton) — Scuderia Ferrari, #44
+- [Nico Hulkenberg](https://www.enterf1.com/drivers/driver.php?slug=nico-hulkenberg) — Audi F1 Team, #27
+- [Liam Lawson](https://www.enterf1.com/drivers/driver.php?slug=liam-lawson) — Visa Cash App RB, #30
+- [Charles Leclerc](https://www.enterf1.com/drivers/driver.php?slug=charles-leclerc) — Scuderia Ferrari, #16
+- [Arvid Lindblad](https://www.enterf1.com/drivers/driver.php?slug=arvid-lindblad) — Visa Cash App RB, #41
+- [Lando Norris](https://www.enterf1.com/drivers/driver.php?slug=lando-norris) — McLaren, #1
+- [Esteban Ocon](https://www.enterf1.com/drivers/driver.php?slug=esteban-ocon) — MoneyGram Haas, #31
+- [Sergio Perez](https://www.enterf1.com/drivers/driver.php?slug=sergio-perez) — Cadillac F1 Team, #11
+- [Oscar Piastri](https://www.enterf1.com/drivers/driver.php?slug=oscar-piastri) — McLaren, #81
+- [George Russell](https://www.enterf1.com/drivers/driver.php?slug=george-russell) — Mercedes-AMG Petronas, #63
+- [Carlos Sainz](https://www.enterf1.com/drivers/driver.php?slug=carlos-sainz) — Williams Racing, #55
+- [Lance Stroll](https://www.enterf1.com/drivers/driver.php?slug=lance-stroll) — Aston Martin Aramco, #18
+- [Max Verstappen](https://www.enterf1.com/drivers/driver.php?slug=max-verstappen) — Red Bull Racing, #3
 
 ## Legal
 

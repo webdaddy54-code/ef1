@@ -42,6 +42,19 @@ $metaDescription = $driver['full_name'] . ' is a ' . $driver['nationality'] . ' 
 $metaKeywords = $driver['full_name'] . ', ' . $driver['nationality'] . ', F1 driver, Formula 1, ' . ($team ? $team['team_name'] . ', ' : '') . '#' . $driver['driver_number'] . ', F1 2026';
 $canonicalUrl = SITE_URL . '/drivers/driver.php?slug=' . $driver['slug'];
 
+// Breadcrumb schema
+$schemaDataExtra = [
+    [
+        "@context" => "https://schema.org",
+        "@type" => "BreadcrumbList",
+        "itemListElement" => [
+            ["@type" => "ListItem", "position" => 1, "name" => "Home", "item" => SITE_URL . '/'],
+            ["@type" => "ListItem", "position" => 2, "name" => "Drivers", "item" => SITE_URL . '/drivers/'],
+            ["@type" => "ListItem", "position" => 3, "name" => $driver['full_name'], "item" => $canonicalUrl]
+        ]
+    ]
+];
+
 // Schema.org JSON-LD for Person (Athlete)
 $schemaData = [
     "@context" => "https://schema.org",
@@ -93,6 +106,9 @@ if ($driver['world_championships'] > 0) {
     }
     $schemaData['award'] = $awards;
 }
+
+// Combine Person and BreadcrumbList schemas
+$schemaData = [$schemaData, $schemaDataExtra[0]];
 
 include '../includes/header.php';
 ?>

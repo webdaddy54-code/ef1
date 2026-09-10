@@ -13,56 +13,48 @@ $metaDescription = 'Compare trusted F1 ticket providers with our independent buy
 $metaKeywords = 'buy F1 tickets, F1 Grand Prix tickets, where to buy F1 tickets, F1 ticket comparison, safe F1 tickets, F1 hospitality packages, Paddock Club tickets, Formula 1 tickets, F1 ticket providers, Grand Prix tickets online';
 $canonicalUrl = SITE_URL . '/where-to-buy-f1-tickets.php';
 
-// Schema.org JSON-LD — WebPage with FAQPage
+// FAQs — must match the visible FAQ section below exactly
+$faqs = [
+    [
+        'question' => 'Where is the safest place to buy F1 tickets?',
+        'answer' => 'The safest place to buy F1 tickets is through an authorised ticket agency. The providers we recommend are GooTickets, GPTicketShop and MyGPTicket. Each has been selling F1 tickets for over a decade, offers secure payment processing, and guarantees delivery.'
+    ],
+    [
+        'question' => 'What types of F1 tickets are available?',
+        'answer' => 'F1 tickets fall into three main categories. General Admission gives access to standing or grass-banking areas with no reserved seat and is the cheapest option. Grandstand tickets provide a reserved, numbered seat in a specific stand. Hospitality and VIP packages include premium viewing, catering, open bars and extras such as pit lane walks, ranging from enhanced grandstand experiences up to the Formula 1 Paddock Club.'
+    ],
+    [
+        'question' => 'Is it safe to buy F1 tickets from resellers?',
+        'answer' => 'Buying from the secondary market carries more risk than buying from authorised sellers. Reseller prices are usually above face value and counterfeit tickets do exist on less reputable platforms. Only use resale platforms that offer a formal buyer protection guarantee, and avoid individuals on social media or classified sites.'
+    ],
+    [
+        'question' => 'When should I buy F1 tickets for the best price?',
+        'answer' => 'Most circuits release tickets 6–9 months before the race. Early-bird pricing offers the best value, and popular races such as Silverstone, Monaco and Monza often sell out months in advance. Prices generally rise as the race approaches.'
+    ],
+    [
+        'question' => 'Should I choose grandstand or general admission tickets?',
+        'answer' => 'Choose General Admission if you want the lowest cost and do not mind finding your own viewing spot. Choose a Grandstand if you want a guaranteed reserved seat with a specific view of the track. Grandstands vary enormously in price depending on location, with main-straight and Turn 1 positions usually the most expensive.'
+    ],
+    [
+        'question' => 'How can I avoid F1 ticket scams?',
+        'answer' => 'Only buy from authorised providers or platforms with formal buyer protection. Red flags include sellers who insist on bank transfer only, prices that look too good to be true, no physical address or contact details, and tickets delivered as screenshots or photocopies. If in doubt, check whether the seller is listed on the circuit\'s official website as an authorised agent.'
+    ]
+];
+
+// Schema.org JSON-LD — FAQPage
 $schemaData = [
     "@context" => "https://schema.org",
-    "@type" => "WebPage",
-    "name" => "Where to Buy F1 Tickets — Buyers Guide",
-    "description" => $metaDescription,
-    "url" => $canonicalUrl,
-    "publisher" => [
-        "@type" => "Organization",
-        "name" => "EnterF1.com",
-        "url" => SITE_URL
-    ],
-    "dateModified" => "2026-02-18",
-    "mainEntity" => [
-        "@type" => "FAQPage",
-        "mainEntity" => [
-            [
-                "@type" => "Question",
-                "name" => "Where is the safest place to buy F1 tickets?",
-                "acceptedAnswer" => [
-                    "@type" => "Answer",
-                    "text" => "The safest options are authorised ticket agencies such as GooTickets, GPTicketShop and MyGPTicket. These are established providers who have been selling F1 tickets for over a decade with secure payment processing and guaranteed delivery."
-                ]
-            ],
-            [
-                "@type" => "Question",
-                "name" => "What types of F1 tickets are available?",
-                "acceptedAnswer" => [
-                    "@type" => "Answer",
-                    "text" => "F1 tickets come in three main categories: General Admission (standing/grass banking areas), Grandstand (reserved numbered seats), and Hospitality (VIP packages including food, drink and premium viewing). Prices range from around £100 for GA to over £5,000 for premium hospitality."
-                ]
-            ],
-            [
-                "@type" => "Question",
-                "name" => "Is it safe to buy F1 tickets from resellers?",
-                "acceptedAnswer" => [
-                    "@type" => "Answer",
-                    "text" => "Secondary market platforms carry higher risk than authorised sellers. Prices are typically inflated, and counterfeit tickets do exist. If buying from a reseller, only use platforms with a buyer protection guarantee and be prepared to pay above face value."
-                ]
-            ],
-            [
-                "@type" => "Question",
-                "name" => "When should I buy F1 tickets for the best price?",
-                "acceptedAnswer" => [
-                    "@type" => "Answer",
-                    "text" => "Most circuits release tickets 6-9 months before the race. Early-bird pricing offers the best value, with popular races like Silverstone, Monaco and Monza selling out months in advance. Prices generally increase as the race approaches."
-                ]
+    "@type" => "FAQPage",
+    "mainEntity" => array_map(function ($faq) {
+        return [
+            "@type" => "Question",
+            "name" => $faq['question'],
+            "acceptedAnswer" => [
+                "@type" => "Answer",
+                "text" => $faq['answer']
             ]
-        ]
-    ]
+        ];
+    }, $faqs)
 ];
 
 include 'includes/header.php';
@@ -273,6 +265,27 @@ include 'includes/header.php';
                 </div>
             </div>
 
+            <!-- FAQ -->
+            <section class="mb-5">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="accordion" id="ticketsFaq">
+                    <?php foreach ($faqs as $i => $faq): ?>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button <?php echo $i === 0 ? '' : 'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#faq<?php echo $i; ?>">
+                                <?php echo htmlspecialchars($faq['question']); ?>
+                            </button>
+                        </h3>
+                        <div id="faq<?php echo $i; ?>" class="accordion-collapse collapse <?php echo $i === 0 ? 'show' : ''; ?>" data-bs-parent="#ticketsFaq">
+                            <div class="accordion-body">
+                                <?php echo htmlspecialchars($faq['answer']); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+
             <!-- Final CTA -->
             <div class="card border-f1 mb-4">
                 <div class="card-body text-center py-4">
@@ -428,6 +441,63 @@ include 'includes/header.php';
         </div>
 
     </div>
+
+            <!-- Frequently Asked Questions -->
+            <h2 class="section-title mt-5">Frequently Asked Questions</h2>
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Where is the safest place to buy F1 tickets?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The safest options are authorised ticket agencies such as GooTickets, GPTicketShop and MyGPTicket. These are established providers who have been selling F1 tickets for over a decade with secure payment processing and guaranteed delivery.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    What types of F1 tickets are available?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    F1 tickets come in three main categories: General Admission (standing/grass banking areas), Grandstand (reserved numbered seats), and Hospitality (VIP packages including food, drink and premium viewing). Prices range from around £100 for GA to over £5,000 for premium hospitality.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Is it safe to buy F1 tickets from resellers?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Secondary market platforms carry higher risk than authorised sellers. Prices are typically inflated, and counterfeit tickets do exist. If buying from a reseller, only use platforms with a buyer protection guarantee and be prepared to pay above face value.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    When should I buy F1 tickets for the best price?
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Most circuits release tickets 6-9 months before the race. Early-bird pricing offers the best value, with popular races like Silverstone, Monaco and Monza selling out months in advance. Prices generally increase as the race approaches.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </article>
 

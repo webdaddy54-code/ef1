@@ -2,7 +2,25 @@
 require_once 'config.php';
 
 $currentPage = 'home';
-$pageTitle = 'Home';
+$pageTitle = 'F1 Race Guides, 2026 Calendar, Teams & Drivers';
+$canonicalUrl = SITE_URL . '/';
+
+// Schema.org JSON-LD: Organization + WebSite
+$schemaData = [
+    [
+        "@context" => "https://schema.org",
+        "@type" => "Organization",
+        "name" => "EnterF1.com",
+        "url" => SITE_URL,
+        "logo" => SITE_URL . '/assets/images/enterf1-og-default.jpg'
+    ],
+    [
+        "@context" => "https://schema.org",
+        "@type" => "WebSite",
+        "name" => SITE_NAME,
+        "url" => SITE_URL
+    ]
+];
 
 // Get next race
 $nextRace = getNextRace($pdo);
