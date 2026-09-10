@@ -3,3 +3,5 @@ database.sqlite
 /admin/generate_hash.php
 config.php
 
+# Project docs — keep off live site
+*.md
