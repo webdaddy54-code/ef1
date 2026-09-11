@@ -97,6 +97,11 @@ if (!isset($pdo)) {
 
     <!-- Bootstrap 5 CSS — async loaded to eliminate render-blocking -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <?php if (!empty($loadMapbox)): ?>
+    <!-- Mapbox GL CSS (only on race pages with the circuit map) -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+    <?php endif; ?>
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></noscript>
 
     <!-- Bootstrap Icons — async loaded to eliminate render-blocking -->

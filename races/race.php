@@ -95,6 +95,9 @@ if ($ticketData && ($ticketData['ga_sunday'] || $ticketData['ga_3day'])) {
 $schemaData = [$schemaData, $breadcrumbSchema];
 $pageTitle = $metaTitle;
 
+// Enable the Mapbox circuit map when we have coordinates and a token
+$loadMapbox = !empty($race['latitude']) && !empty($race['longitude']) && defined('MAPBOX_TOKEN') && MAPBOX_TOKEN !== '';
+
 include '../includes/header.php';
 ?>
 
@@ -423,11 +426,19 @@ include '../includes/header.php';
                         </div>
                     <?php endif; ?>
 
-                    <!-- Map Placeholder (for future Google Maps integration) -->
-                    <div class="mt-4 p-5 bg-light text-center rounded">
-                        <i class="bi bi-map text-muted" style="font-size: 3rem;"></i>
-                        <p class="text-muted mt-2 mb-0">Interactive map coming soon</p>
-                    </div>
+                    <?php if ($loadMapbox): ?>
+                        <!-- Interactive circuit map (Mapbox) -->
+                        <div class="mt-4">
+                            <div id="circuit-map" style="height: 350px; border-radius: 0.5rem; overflow: hidden;"></div>
+                            <p class="text-muted small mt-2 mb-0"><i class="bi bi-pin-map"></i> <?php echo htmlspecialchars($race['circuit_name']); ?> — drag to explore, scroll to zoom</p>
+                        </div>
+                    <?php else: ?>
+                        <!-- Map placeholder (shown when no Mapbox token is configured) -->
+                        <div class="mt-4 p-5 bg-light text-center rounded">
+                            <i class="bi bi-map text-muted" style="font-size: 3rem;"></i>
+                            <p class="text-muted mt-2 mb-0">Interactive map coming soon</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -686,11 +697,11 @@ include '../includes/header.php';
             // Get next 5 races in chronological order
             $stmtUpcoming = $pdo->prepare("
                 SELECT * FROM races 
-                WHERE race_date >= CURDATE()
+                WHERE race_date >= :today
                 ORDER BY race_date ASC 
                 LIMIT 5
             ");
-            $stmtUpcoming->execute();
+            $stmtUpcoming->execute(['today' => date('Y-m-d')]);
             $upcomingRaces = $stmtUpcoming->fetchAll();
 
             if ($upcomingRaces && count($upcomingRaces) > 0):
@@ -813,5 +824,24 @@ include '../includes/header.php';
         box-shadow: 0 2px 8px rgba(225, 6, 0, 0.1);
     }
 </style>
+
+<?php if ($loadMapbox): ?>
+<!-- Mapbox GL JS (loaded only on race pages with coordinates + token) -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script>
+    mapboxgl.accessToken = <?php echo json_encode(MAPBOX_TOKEN); ?>;
+    const circuitMap = new mapboxgl.Map({
+        container: 'circuit-map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [<?php echo (float) $race['longitude']; ?>, <?php echo (float) $race['latitude']; ?>],
+        zoom: 14
+    });
+    circuitMap.addControl(new mapboxgl.NavigationControl());
+    new mapboxgl.Marker({ color: '#E10600' })
+        .setLngLat([<?php echo (float) $race['longitude']; ?>, <?php echo (float) $race['latitude']; ?>])
+        .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(<?php echo json_encode($race['circuit_name']); ?>))
+        .addTo(circuitMap);
+</script>
+<?php endif; ?>
 
 <?php include '../includes/footer.php'; ?>

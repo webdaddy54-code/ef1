@@ -27,6 +27,9 @@ define('SITE_TAGLINE', 'Your Ultimate F1 Race Guide for 2026');
 // Timezone
 date_default_timezone_set('UTC');
 
+// Mapbox public token (circuit maps on race pages) — https://account.mapbox.com/
+define('MAPBOX_TOKEN', '');
+
 // Database Connection (MySQL via PDO)
 try {
     $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;

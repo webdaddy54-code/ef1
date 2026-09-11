@@ -353,11 +353,11 @@ include 'includes/header.php';
             <?php
             $stmtUpcoming = $pdo->prepare("
                 SELECT * FROM races 
-                WHERE race_date >= CURDATE()
+                WHERE race_date >= :today
                 ORDER BY race_date ASC 
                 LIMIT 5
             ");
-            $stmtUpcoming->execute();
+            $stmtUpcoming->execute(['today' => date('Y-m-d')]);
             $upcomingRaces = $stmtUpcoming->fetchAll();
 
             if ($upcomingRaces && count($upcomingRaces) > 0):
