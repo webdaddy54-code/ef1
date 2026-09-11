@@ -11,6 +11,26 @@ $races = getAllRaces($pdo);
 // Get next race for highlight
 $nextRace = getNextRace($pdo);
 
+// Season overview map: circuits with valid coordinates (needs MAPBOX_TOKEN in config)
+$loadMapbox = defined('MAPBOX_TOKEN') && MAPBOX_TOKEN !== '';
+$mapCircuits = [];
+if ($loadMapbox) {
+    foreach ($races as $r) {
+        if (!empty($r['latitude']) && !empty($r['longitude'])) {
+            $mapCircuits[] = [
+                'name'      => $r['event_name'],
+                'circuit'   => $r['circuit_name'],
+                'date'      => date('j M Y', strtotime($r['race_date'])),
+                'lat'       => (float) $r['latitude'],
+                'lng'       => (float) $r['longitude'],
+                'slug'      => $r['slug'],
+                'cancelled' => str_contains($r['event_name'], 'CANCELLED'),
+            ];
+        }
+    }
+    $loadMapbox = !empty($mapCircuits);
+}
+
 include '../includes/header.php';
 ?>
 
@@ -73,6 +93,21 @@ include '../includes/header.php';
             </div>
         </div>
     </div>
+
+    <?php if ($loadMapbox): ?>
+    <!-- Season Overview Map -->
+    <h2 class="section-title">2026 Circuit Map</h2>
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div id="season-map" style="height: 480px; border-radius: 0.375rem; overflow: hidden;"></div>
+                </div>
+            </div>
+            <p class="text-muted small mt-2 mb-0"><i class="bi bi-pin-map"></i> All 24 circuits — click a marker for race details. Cancelled races shown in grey.</p>
+        </div>
+    </div>
+    <?php endif; ?>
     
     <!-- Full Race Calendar -->
     <section>
@@ -165,5 +200,36 @@ include '../includes/header.php';
     </div>
     
 </div>
+
+<?php if ($loadMapbox): ?>
+<!-- Mapbox GL JS (loaded only on this page when a token is configured) -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script>
+    mapboxgl.accessToken = <?php echo json_encode(MAPBOX_TOKEN); ?>;
+    const circuits = <?php echo json_encode($mapCircuits, JSON_UNESCAPED_SLASHES); ?>;
+
+    const seasonMap = new mapboxgl.Map({
+        container: 'season-map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [20, 30],
+        zoom: 1.4
+    });
+    seasonMap.addControl(new mapboxgl.NavigationControl());
+
+    const bounds = new mapboxgl.LngLatBounds();
+    circuits.forEach((c) => {
+        const popupHtml = '<strong>' + c.name + '</strong><br>' +
+            c.circuit + '<br>' + c.date +
+            (c.cancelled ? '<br><em>Cancelled</em>' : '') +
+            '<br><a href="race.php?slug=' + encodeURIComponent(c.slug) + '">Race details &rarr;</a>';
+        new mapboxgl.Marker({ color: c.cancelled ? '#6c757d' : '#E10600' })
+            .setLngLat([c.lng, c.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupHtml))
+            .addTo(seasonMap);
+        bounds.extend([c.lng, c.lat]);
+    });
+    seasonMap.fitBounds(bounds, { padding: 60 });
+</script>
+<?php endif; ?>
 
 <?php include '../includes/footer.php'; ?>
