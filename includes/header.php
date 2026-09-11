@@ -146,6 +146,12 @@ if (!isset($pdo)) {
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-dark <?php echo (isset($currentPage) && $currentPage == 'guides') ? 'active fw-bold' : ''; ?>"
+                            href="/where-to-sit/">
+                            <i class="bi bi-geo-alt-fill"></i> Where to Sit
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-dark <?php echo (isset($currentPage) && $currentPage == 'tv-schedule') ? 'active fw-bold' : ''; ?>"
                             href="/f1-tv-schedule.php">
                             <i class="bi bi-tv-fill"></i> TV Times

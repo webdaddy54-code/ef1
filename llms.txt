@@ -19,6 +19,7 @@ EnterF1.com is an independent Formula 1 fan website. It provides comprehensive r
 
 - [Homepage](https://www.enterf1.com/) — Next race countdown, season overview, teams and drivers
 - [Race Calendar](https://www.enterf1.com/races/) — All 24 races with dates and circuit info
+- [Where to Sit Guides](https://www.enterf1.com/where-to-sit/) — Grandstand-by-grandstand seating guides: views, overtaking spots, covered stands, value picks
 - [Teams](https://www.enterf1.com/teams/) — All 11 F1 teams with driver lineups
 - [Drivers](https://www.enterf1.com/drivers/) — All 22 F1 drivers with profiles
 - [Results](https://www.enterf1.com/results/) — Race results and championship standings

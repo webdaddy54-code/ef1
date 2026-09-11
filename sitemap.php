@@ -48,6 +48,7 @@ sitemapUrl($baseUrl . '/terms.php',                    $fm('terms.php'), 'yearly
 // Race Calendar Index
 // ------------------------------------------------------------------
 sitemapUrl($baseUrl . '/races/',    $fm('races/index.php'), 'weekly', '0.9');
+sitemapUrl($baseUrl . '/where-to-sit/', $fm('where-to-sit/index.php'), 'weekly', '0.8');
 sitemapUrl($baseUrl . '/drivers/',  $fm('drivers/index.php'), 'weekly', '0.8');
 sitemapUrl($baseUrl . '/teams/',    $fm('teams/index.php'), 'weekly', '0.7');
 sitemapUrl($baseUrl . '/results/',  $fm('results/index.php'), 'weekly', '0.8');
